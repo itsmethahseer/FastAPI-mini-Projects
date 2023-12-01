@@ -7,7 +7,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # Set up API key and defaults
-palm.configure(api_key="replace your api-token here")
+palm.configure(api_key="type your api-token here")
 defaults = {
     'model': 'models/text-bison-001',
     'temperature': 0.7,
