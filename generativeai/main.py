@@ -9,14 +9,15 @@ templates = Jinja2Templates(directory="templates")
 # Set up API key and defaults
 palm.configure(api_key="type your api-token here")
 defaults = {
-    'model': 'models/text-bison-001',
-    'temperature': 0.7,
-    'candidate_count': 1,
-    'top_k': 40,
-    'top_p': 0.95,
-    'max_output_tokens': 1024,
-    'stop_sequences': [],
+    "model": "models/text-bison-001",
+    "temperature": 0.7,
+    "candidate_count": 1,
+    "top_k": 40,
+    "top_p": 0.95,
+    "max_output_tokens": 1024,
+    "stop_sequences": [],
 }
+
 
 @app.get("/", response_class=JSONResponse)
 async def get_chatbot(request: Request):

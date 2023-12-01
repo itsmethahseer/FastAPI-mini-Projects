@@ -27,7 +27,8 @@ async def create_user_endpoint(username : str, password : str):
     user = create_user(username,password)
     return {"username":user.username}
 
-#login using created user
+# login using created user
+
 @app.post('/login')
 async def login(login:User):
     user = authenticate_user(login.username,login.password)
