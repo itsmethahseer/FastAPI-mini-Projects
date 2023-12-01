@@ -1,1 +1,1 @@
-jwt_secret_key = "dkjflehiei84uihghgk849yiedgkjrh"
+jwt_secret_key = "enter your secret key here"
