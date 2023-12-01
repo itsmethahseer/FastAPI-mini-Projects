@@ -1,0 +1,60 @@
+<!-- templates/chatbot.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Add Bootstrap CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-glCJ8EBZR9RABcJRr6ZlNV/J5B82ATv6BTNO3pNEeIt6L0FmaLdF4HGFGbLb6UqD" crossorigin="anonymous">
+    <style>
+        /* Your custom CSS styles here */
+    </style>
+</head>
+
+<body>
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <div class="chatbot-header">
+            Chatbot
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+            <p>Welcome to the chatbot!</p>
+        </div>
+        <input type="text" class="form-control chat-input" id="user-input" placeholder="Type your message...">
+        <button class="btn btn-primary send-button" onclick="sendMessage()">Send</button>
+    </div>
+
+    <!-- Add Bootstrap JS and Popper.js CDN links -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-rT5tV86bPGnp0jRaW2DWtLreOdJOgJw51iF1AuQe4PK6ds6o2XgJDPaI4U8S5cC" crossorigin="anonymous"></script>
+
+    <script>
+        async function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+
+            // Make an asynchronous request to your FastAPI endpoint
+            const response = await fetch('/generate_text', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    prompt: userInput,
+                }),
+            });
+
+            // Parse the JSON response
+            const result = await response.json();
+
+            // Update the chatbot body with the user input and the chatbot's response
+            var chatbotBody = document.getElementById("chatbot-body");
+            chatbotBody.innerHTML += `<p>User: ${userInput}</p><p>Chatbot: ${result.result}</p>`;
+
+            // Clear the user input
+            document.getElementById("user-input").value = '';
+        }
+    </script>
+</body>
+
+</html>

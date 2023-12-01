@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+
+
+# my sqlalchemy and related database operations is in myenv
+# peewee related is in the environment namely myenv1
