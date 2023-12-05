@@ -19,9 +19,9 @@ SUPPORTED_FILE_TYPES = {
     "application/pdf": "pdf",
 }
 
-aws_access_key_id = "TP9c3ASJgt3ZiklnXw6cj/ogSxxrW92QGqk2xyWu"
-aws_secret_access_key = "AKIAYA5CQ5YJRZRZCAGE"
-region_name = "ap-south-1"
+aws_access_key_id = "replace your was access key"
+aws_secret_access_key = "replace with your was secret key"
+region_name = "replace with your region"
 
 AWS_BUCKET = "myawsbucket1234567890100"
 s3 = boto3.resource(  # Use boto3.resource instead of boto3.client
